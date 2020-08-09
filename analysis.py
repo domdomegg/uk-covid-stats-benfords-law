@@ -1,6 +1,7 @@
 import os
 import requests
 import csv
+import datetime
 import matplotlib.pyplot as plt
 
 buckets = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -41,7 +42,7 @@ print('Plotting data...')
 fig, ax = plt.subplots()
 ax.plot(range(1, 10), buckets, label = 'COVID stats')
 ax.plot(range(1, 10), [30.1, 17.6, 12.5, 9.7, 7.9, 6.7, 5.8, 5.1, 4.6], label = 'Benford\'s law')
-ax.set(xlabel = 'First digit', ylabel = 'Frequency (%)', title = 'UK COVID statistics follow Benford\'s law (as of ' + lastUpdated[0:10] + ')')
+ax.set(xlabel = 'First digit', ylabel = 'Frequency (%)', title = 'UK COVID statistics follow Benford\'s law (as of ' + datetime.date.today().isoformat() + ')')
 plt.legend()
 if os.environ.get('CI') == 'true' or os.environ.get('HEADLESS') == 'true':
     plt.savefig('output.png')
