@@ -23,6 +23,8 @@ jobs:
         python analysis.py
     - name: Commit and push changes
       run: |
+        git config user.name "Adam Jones"
+        git config user.email jones_adam@rocketmail.com
         git add -A
         git diff-index --quiet HEAD || git commit -a -m "Update chart for $(date --iso-8601)"
         git push
