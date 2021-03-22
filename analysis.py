@@ -9,7 +9,7 @@ buckets = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 if not os.path.isfile('data.csv'):
     print('Downloading data...')
     try:
-        data = requests.get('https://c19downloads.azureedge.net/downloads/csv/coronavirus-cases_latest.csv')
+        data = requests.get('https://coronavirus.data.gov.uk/downloads/csv/coronavirus-cases_latest.csv')
     except Exception as e:
         print('Failed to retrieve data:')
         print(e)
