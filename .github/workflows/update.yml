@@ -23,9 +23,10 @@ jobs:
       run: |
         python analysis.py
     - name: Commit and push changes
+      if: github.ref == 'refs/heads/master'
       run: |
         git config user.name "Adam Jones"
-        git config user.email jones_adam@rocketmail.com
+        git config user.email "domdomegg+git@gmail.com"
         git add -A
         git diff-index --quiet HEAD || git commit -a -m "[bot] Update chart for $(date --iso-8601)"
         git push
